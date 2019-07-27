@@ -3,17 +3,21 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-firebase-demo": {
+    "AngularFirebaseCRUD": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-firebase-demo",
+            "outputPath": "dist/AngularFirebaseCRUD",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,7 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -57,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-firebase-demo:build"
+            "browserTarget": "AngularFirebaseCRUD:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-firebase-demo:build:production"
+              "browserTarget": "AngularFirebaseCRUD:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-firebase-demo:build"
+            "browserTarget": "AngularFirebaseCRUD:build"
           }
         },
         "test": {
@@ -79,7 +83,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": [],
             "assets": [
@@ -102,7 +106,7 @@
         }
       }
     },
-    "angular-firebase-demo-e2e": {
+    "AngularFirebaseCRUD-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -111,11 +115,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-firebase-demo:serve"
+            "devServerTarget": "AngularFirebaseCRUD:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-firebase-demo:serve:production"
+              "devServerTarget": "AngularFirebaseCRUD:serve:production"
             }
           }
         },
@@ -131,5 +135,5 @@
       }
     }
   },
-  "defaultProject": "angular-firebase-demo"
+  "defaultProject": "AngularFirebaseCRUD"
 }

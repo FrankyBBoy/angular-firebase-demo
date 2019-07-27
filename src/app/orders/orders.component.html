@@ -1,31 +1,35 @@
-<form [formGroup]="this.ordersService.form" (ngSubmit)="onSubmit()">
+<h5>Coffee Order:</h5>
+<form [formGroup]="this.ordersService.form">
+  <input
+    placeholder="Customer Name"
+    formControlName="customerName"
+    type="text"
+    class="input-field col s12"
+  />
 
-  <input placeholder="Order Number" 
-         formControlName="orderNumber" 
-         type="text" 
-         class="input-field col s12">
+  <input
+    class="input-field col s12"
+    placeholder="Order Number"
+    formControlName="orderNumber"
+    type="number"
+  />
 
-  <input placeholder="Customer Name" 
-         formControlName="customerName" 
-         type="text" 
-         class="input-field col s12">
-
-  <button class="waves-effect waves-light btn col s4" 
-         *ngFor="let coffee of coffees" 
-         (click)="addCoffee(coffee)">
-  {{coffee}}
+  <button
+    class="waves-effect waves-light btn col s4"
+    *ngFor="let coffee of coffees"
+    (click)="addCoffee(coffee)"
+  >
+    {{ coffee }}
   </button>
 
   <ul class="collection">
-      <li *ngFor="let coffee of coffeeOrder">
-         <span class="col s11"> {{ coffee }} </span>
-         <a class="col s1" (click)="removeCoffee(coffee)">x</a>
-      </li>
-  </ul>         
+    <li *ngFor="let coffee of coffeeOrder">
+      <span class="col s11"> {{ coffee }} </span
+      ><a class="col s1" (click)="removeCoffee(coffee)">x</a>
+    </li>
+  </ul>
 
-  <button 
-    class="waves-effect waves-light btn col s12" 
-    (click)="onSubmit()">
-  Submit
+  <button class="waves-effect waves-light btn col s12" (click)="onSubmit()">
+    Submit
   </button>
 </form>
